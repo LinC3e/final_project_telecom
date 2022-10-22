@@ -5,9 +5,12 @@ const routerPost = express.Router()
 routerPost.get('/posts', async (req,res) => {
     try {
         
-        const posts = await Post.find({})
+        const posts = await Post.find({}).lean()// Me deja un obj puro de js
+        console.log(posts)
 
-        res.render('get',
+        const title = "Listado de Post"
+
+        res.render('index',
             {
                 title,
                 posts

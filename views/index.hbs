@@ -1,0 +1,24 @@
+<h1>Posts</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Post</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each posts}}
+            <tr>
+                <td>{{this.title}}</td>
+                <td width="50%">{{this.body}}</td>
+                <td>
+                    <button class="btn btn-primary">Show</button>
+                    <button class="btn btn-success">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
