@@ -1,25 +1,9 @@
 const express = require('express')
-const Post = require('../models/posts')
 const routerPost = express.Router()
+const { getPosts } = require('../controllers/posts')
 
-routerPost.get('/posts', async (req,res) => {
-    try {
-        
-        const posts = await Post.find({}).lean()// Me deja un obj puro de js
-        console.log(posts)
-
-        const title = "Listado de Post"
-
-        res.render('index',
-            {
-                title,
-                posts
-            }
-        )
-    } catch (error) {
-        console.log(error)
-    }
-})
+// ruta index
+routerPost.get('/posts',getPosts )
 
 
 module.exports = {
