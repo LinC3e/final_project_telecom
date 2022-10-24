@@ -20,7 +20,7 @@
                     <!--Mostrar-->
                     <a href="/posts/{{this.slug}}" class="btn btn-primary">Show</a>
                     <!--Editar-->
-                    <button class="btn btn-success">Edit</button>
+                    <a href="/posts/edit/{{this._id}}" class="btn btn-success">Edit</a>
                     <!--Borrar-->
                     <form action="/posts/{{this._id}}?_method=DELETE" method="post">
                         <button class="btn btn-danger">Delete</button>

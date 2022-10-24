@@ -64,6 +64,21 @@ const showPost = async (req,res) => {
     }
 }
 
+// Edit
+
+const showFormEditPost = async (req,res) => {
+    try {
+        const post = await Post.findById(req.params.id).lean()
+
+        res.render('edit', {
+            title: 'Editando Post',
+            post
+        })
+    } catch (error) {
+        console.log("Show edit erro", error)
+    }
+}
+
 // DELETE 
 
 const deletePost = async (req,res) => {
@@ -78,9 +93,10 @@ const deletePost = async (req,res) => {
 
 
 module.exports = { 
-    getPosts,
-    newPost,
-    createPost,
-    showPost,
-    deletePost
+    getPosts,  // get
+    newPost,  // get
+    createPost, // post
+    showPost,  // get
+    showFormEditPost, // get
+    deletePost // delete
 }
