@@ -1,5 +1,7 @@
 const Post = require('../models/posts')
 
+
+// Index
 const getPosts = async (req,res) => {
     try {
         
@@ -19,6 +21,23 @@ const getPosts = async (req,res) => {
     }
 }
 
+// Show 
+
+const showPost = async (req,res) => {
+    try {
+        const post = await Post.findOne({ slug : req.params.slug }).lean()
+        if(post === null) res.redirect('/')
+
+        res.render('show', {
+            title: `Post | ${post.title}`,
+            post
+        })
+    } catch (error) {
+        console.log("Error Show")
+    }
+}
+
 module.exports = { 
-    getPosts
+    getPosts,
+    showPost
 }
