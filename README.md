@@ -5,5 +5,6 @@
  - [Express](http://expressjs.com/)
  - [Express handlebars](https://github.com/express-handlebars/express-handlebars)
  - [Faker](https://fakerjs.dev/)
- - [Mongoose](https://github.com/simov/slugify)
+ - [Slugify](https://github.com/simov/slugify)
  - [Mongoose](https://mongoosejs.com/)
+ - [Method-override](https://github.com/expressjs/method-override#readme)

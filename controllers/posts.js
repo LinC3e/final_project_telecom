@@ -33,11 +33,25 @@ const showPost = async (req,res) => {
             post
         })
     } catch (error) {
-        console.log("Error Show")
+        console.log("Error Show",error)
     }
 }
 
+// DELETE 
+
+const deletePost = async (req,res) => {
+    try {
+        await Post.findByIdAndDelete(req.params.id)
+
+        res.redirect('/posts')
+    } catch (error) {
+        console.log("Error delete",error)
+    }
+}
+
+
 module.exports = { 
     getPosts,
-    showPost
+    showPost,
+    deletePost
 }
