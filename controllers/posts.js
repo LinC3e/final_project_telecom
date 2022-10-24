@@ -21,6 +21,33 @@ const getPosts = async (req,res) => {
     }
 }
 
+// New 
+
+const newPost = (req,res) => {
+    res.render('new')
+}
+
+
+// Create 
+
+const createPost = async (req,res) => {
+
+    try {
+        console.log(req.body)
+
+        let post = new Post()
+
+        post.title = req.body.title
+        post.body = req.body.body
+
+        post = await post.save()
+        res.redirect(`/posts/${post.slug}`)
+    } catch (error) {
+        console.log("Error create", error)
+    }
+}
+
+
 // Show 
 
 const showPost = async (req,res) => {
@@ -52,6 +79,8 @@ const deletePost = async (req,res) => {
 
 module.exports = { 
     getPosts,
+    newPost,
+    createPost,
     showPost,
     deletePost
 }
