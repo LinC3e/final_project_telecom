@@ -1,0 +1,21 @@
+
+{{#each posts}}
+<div class="row">
+        <div class="col s6">
+            <div class="card large">
+                <div class="card-image">
+                    <img src="imgs/altinay-dinc-LluELtL5mK4-unsplash.jpg">
+                    <span class="card-title">{{this.title}}</span>
+                </div>
+                <div class="card-content">
+                    <p>{{this.body}}</p>
+                </div>
+                <div class="card-action">
+                    <!--Mostrar-->
+                    <a href="/posts/{{this.slug}}" class="btn btn-primary">Show</a>
+                </div>
+            </div>
+        </div>
+        
+</div>
+{{/each}}

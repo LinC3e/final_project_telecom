@@ -1,8 +1,9 @@
 const express = require('express')
 const routerPost = express.Router()
-const { getPosts, showPost, deletePost, newPost, createPost, showFormEditPost } = require('../controllers/posts')
+const { getPosts, showPost, deletePost, newPost, createPost, showFormEditPost, traerPostCard } = require('../controllers/posts')
 
 // ruta index
+routerPost.get('/', traerPostCard)
 routerPost.get('/posts',getPosts )
 routerPost.get('/posts/new', newPost)
 routerPost.get('/posts/edit/:id', showFormEditPost)

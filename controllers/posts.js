@@ -1,5 +1,25 @@
 const Post = require('../models/posts')
 
+// Mostrar post en cards
+
+const traerPostCard = async (req,res) => {
+    try {
+        
+        const posts = await Post.find({}).lean()// Me deja un obj puro de js
+        console.log(posts)
+
+        const title = "Home"
+
+        res.status(200).render('home',
+            {
+                title,
+                posts
+            }
+        )
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 // Index
 const getPosts = async (req,res) => {
@@ -93,6 +113,7 @@ const deletePost = async (req,res) => {
 
 
 module.exports = { 
+    traerPostCard,
     getPosts,  // get
     newPost,  // get
     createPost, // post

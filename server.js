@@ -5,7 +5,6 @@ const methodOverride = require('method-override')
 require('dotenv').config()
 
 
-const routerIndex = require('./routes')
 const { dbConnection } = require('./database/config')
 const { routerDev } = require('./routes/db')
 const { routerPost } = require('./routes/posts')
@@ -31,7 +30,6 @@ app.use(methodOverride('_method'))
 app.use(express.static('public/imgs')); 
 
 // Routes
-app.use('/', routerIndex)
 app.use('/', routerDev)// Solo desarrollo
 app.use('/', routerPost)
 
