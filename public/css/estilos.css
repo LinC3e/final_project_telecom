@@ -1,3 +1,16 @@
+@font-face {
+    font-family: fuente-prin;
+    src: url(../fonts/coolvetica\ rg.otf);
+}
+
+:root{
+    --bg-color: #111216;
+}
+
+body{
+    font-family: fuente-prin;
+}
+
 .btn-outline-warning{
     background-color: black;
 }
