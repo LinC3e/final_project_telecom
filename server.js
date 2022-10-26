@@ -6,6 +6,7 @@ require('dotenv').config()
 
 
 const { dbConnection } = require('./database/config')
+const { routerAuth } = require('./routes/auth')
 const { routerDev } = require('./routes/db')
 const { routerPost } = require('./routes/posts')
 
@@ -32,6 +33,7 @@ app.use(express.static('public/imgs'));
 // Routes
 app.use('/', routerDev)// Solo desarrollo
 app.use('/', routerPost)
+app.use('/', routerAuth)
 
 app.listen(PORT, err => {
     if(err) throw new Error("Ocurrio un problema en el servidor - ",err)
