@@ -8,3 +8,7 @@
  - [Slugify](https://github.com/simov/slugify)
  - [Mongoose](https://mongoosejs.com/)
  - [Method-override](https://github.com/expressjs/method-override#readme)
+ - [bcrypt](https://github.com/kelektiv/node.bcrypt.js#readme)
+ - [express-session](https://github.com/expressjs/session#readme)
+ - [passport](https://www.passportjs.org/)
+ - [connect-mongo]( https://github.com/jdesboeufs/connect-mongo#readme)

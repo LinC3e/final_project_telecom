@@ -2,7 +2,12 @@ const express = require('express')
 const app = express()
 const { engine } = require('express-handlebars')
 const methodOverride = require('method-override')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
+const passport = require('passport')
+
 require('dotenv').config()
+require('./config/passport')
 
 
 const { dbConnection } = require('./database/config')
@@ -29,6 +34,16 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 app.use(methodOverride('_method'))
 app.use(express.static('public/imgs')); 
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: true,
+        saveUninitialized: true,
+        store: MongoStore.create({mongoUrl: process.env.DB_REMOTA_URI})
+    })
+)
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Routes
 app.use('/', routerDev)// Solo desarrollo

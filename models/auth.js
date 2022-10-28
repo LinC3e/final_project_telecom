@@ -15,7 +15,7 @@ AuthSchema.methods.passwordEncrypt = async (password) => {
     return await bcrypt.hash(password, salt)
 }
 
-AuthSchema.methods.checkPassword = async function ( password ) {
+AuthSchema.methods.checkPassword = async function ( password ) { // true o false
     return await bcrypt.compare(password, this.password)
 }
 
