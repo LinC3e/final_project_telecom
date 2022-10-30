@@ -5,6 +5,7 @@ const methodOverride = require('method-override')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 const passport = require('passport')
+const flash = require('connect-flash')
 
 require('dotenv').config()
 require('./config/passport')
@@ -39,11 +40,17 @@ app.use(
         secret: process.env.SESSION_SECRET,
         resave: true,
         saveUninitialized: true,
-        store: MongoStore.create({mongoUrl: process.env.DB_REMOTA_URI})
+        store: MongoStore.create({mongoUrl: process.env.DB_LOCAL_URI})
     })
 )
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash())
+app.use((req,res,next) => {
+    res.locals.todo_OK = req.flash('todo_OK')
+    res.locals.todo_error = req.flash('todo_error')
+    next()
+})
 
 // Routes
 app.use('/', routerDev)// Solo desarrollo

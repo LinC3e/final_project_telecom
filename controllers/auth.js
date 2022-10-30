@@ -19,19 +19,22 @@ const signup = async (req,res) => {
 
     if( errors.length > 0 ) {
         return res.render('auth/signup', {
-            errors
+            errors,
+            name,
+            email,
         })
     }
 
     const userFound = await Auth.findOne({ email })
     if( userFound ) {
+        req.flash('todo_error', "El mail ya esta registrado.")
         return res.redirect('/auth/signup')
     }
 
     const newUser = new Auth({ name,email,password })
     newUser.password = await newUser.passwordEncrypt(password)
     await newUser.save()
-
+    req.flash("todo_OK", "Se registro correctamente")
     res.redirect('/auth/signin')
 }
 
