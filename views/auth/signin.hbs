@@ -1,3 +1,12 @@
+{{#if todo_OK}}
+    <div id="liveAlertPlaceholder"></div>
+<button type="button" class="btn btn-primary" id="liveAlertBtn">{{todo_OK}}</button>
+{{/if}}
+
+{{#if todo_error}}
+    {{todo_error}}
+{{/if}}
+
 <div class="col">
     <form action="/auth/signin" method="post">
         <div class="form-control">
