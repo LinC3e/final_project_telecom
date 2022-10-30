@@ -49,6 +49,7 @@ app.use(flash())
 app.use((req,res,next) => {
     res.locals.todo_OK = req.flash('todo_OK')
     res.locals.todo_error = req.flash('todo_error')
+    res.locals.user = req.user || null
     next()
 })
 

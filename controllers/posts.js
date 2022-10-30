@@ -24,7 +24,7 @@ const traerPostCard = async (req,res) => {
 // Index
 const getPosts = async (req,res) => {
     try {
-        
+        // Post.find({user.req.id}).lean() filtra post solo del usuario
         const posts = await Post.find({}).lean()// Me deja un obj puro de js
         console.log(posts)
 
@@ -59,6 +59,7 @@ const createPost = async (req,res) => {
 
         post.title = req.body.title
         post.body = req.body.body
+        post.user = req.user.id
 
         post = await post.save()
         res.redirect(`/posts/${post.slug}`)
