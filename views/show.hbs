@@ -1,12 +1,56 @@
 <h2>Post</h2>
 
-<div>
-    <div>
-        <h3>{{ post.title }}</h3>
+<article class="uk-comment" role="comment">
+    <header class="uk-comment-header">
+        <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                <img class="uk-border-rounded uk-child-width-1-4" src="{{post.avatar}}" width="200" height="200" alt="Border rounded">
+            <div class="uk-width-expand">
+                <h4 class="uk-comment-title uk-margin-remove">{{post.title}}</h4>
+                <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                    <li>@{{post.user}}</li>
+                    <li>Reply</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="uk-comment-body">
+        <p>{{post.body}}</p>
     </div>
-    <div>
-        {{ post.body }}
-    </div>
-</div>
 
+<div class="row mb-4 mt-5">
+            <div class="col-md-12">
+                <h4 class="border-bottom pb-2">Comments</h4>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="comments">Write a comment</label>
+                    <textarea id="textarea" rows="3" class="form-control" name="comments" id="comments"></textarea>
+                </div>
+            </div>
+            <div class="col-md-12 mt-4">
+                <button id="btnSendComment" class="btn btn-primary float right">Post comment</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="comment_box">
+                    <li class="comments">
+                        <div class="card border-light mb-3">
+                            <div class="card-body">
+                                <h6>{{post.user}}</h6>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                                <div>
+                                    <i class="fa-regular fa-clock"></i>
+                                    <small>11:30 PM</small>
+                                </div>
+                            </div>
+                        </div> 
+                    </li> 
+                    <br>
+                </ul>
+            </div>
+        </div>
+        
+</div>
+</article>
 
