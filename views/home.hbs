@@ -1,18 +1,10 @@
+<div class="uk-grid-small" uk-grid>
+    {{#each posts}}
 
-{{#each posts}}
-        <div class="col-6">
-            <div class="card large">
-                <div class="card-image">
-                    <img src="imgs/altinay-dinc-LluELtL5mK4-unsplash.jpg">
-                    <span class="card-title">{{this.title}}</span>
-                </div>
-                <div class="card-content">
-                    <p>{{this.body}}</p>
-                </div>
-                <div class="card-action">
-                    <!--Mostrar-->
-                    <a href="/posts/{{this.slug}}" class="btn btn-primary">Show</a>
-                </div>
-            </div>
-        </div>
-{{/each}}
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m uk-flex-cente">
+        <h3 class="uk-card-title">{{this.title}}</h3>
+        <p>{{this.body}}</p>
+    </div>
+
+    {{/each}}
+</div>
