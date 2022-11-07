@@ -11,5 +11,10 @@
  - [bcrypt](https://github.com/kelektiv/node.bcrypt.js#readme)
  - [express-session](https://github.com/expressjs/session#readme)
  - [passport](https://www.passportjs.org/)
+ - [passport-local](https://www.passportjs.org/packages/passport-local/)
  - [connect-mongo](https://github.com/jdesboeufs/connect-mongo#readme)
  - [connect-flash](https://github.com/jaredhanson/connect-flash#readme)
+
+ ## Frontend Framework
+ - [UIkit](https://getuikit.com/)
+ - [Bootstrap](https://getbootstrap.com/)

@@ -86,6 +86,22 @@ const showPost = async (req,res) => {
     }
 }
 
+// my posts 
+const myPosts = async (req, res) => {
+    try {
+        const posts = await Post.find({user: req.user.name}).lean()
+        const title = "My/posts"
+        res.status(200).render('myposts',
+            {
+                title,
+                posts: posts
+            }
+        )
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 // Edit
 
 const showFormEditPost = async (req,res) => {
@@ -140,6 +156,7 @@ module.exports = {
     newPost,  // get
     createPost, // post
     showPost,  // get
+    myPosts,
     showFormEditPost, // get
     editPost,
     deletePost // delete
