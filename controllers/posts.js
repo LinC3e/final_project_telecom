@@ -60,6 +60,7 @@ const createPost = async (req,res) => {
         post.title = req.body.title
         post.body = req.body.body
         post.user = req.user.id
+        post.avatar = "https://ceslava.s3-accelerate.amazonaws.com/2016/04/rZoltXj1-mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"
 
         post = await post.save()
         res.redirect(`/posts/${post.slug}`)
@@ -100,6 +101,26 @@ const showFormEditPost = async (req,res) => {
     }
 }
 
+const editPost = async (req, res) => {
+    try {
+        let post = await Post.findById(req.params.id);
+
+        if (post.user == null || post.user === req.user.name) {
+            post.title = req.body.title;
+            post.body = req.body.body;
+
+            post = await post.save();
+            res.status(200).redirect(`/posts/${post.slug}`);
+        }
+        else {
+            res.status(400).redirect('/posts');
+        }
+    } catch (error) {
+        console.log('Edit ERORR', error)
+    }
+}
+
+
 // DELETE 
 
 const deletePost = async (req,res) => {
@@ -120,5 +141,6 @@ module.exports = {
     createPost, // post
     showPost,  // get
     showFormEditPost, // get
+    editPost,
     deletePost // delete
 }

@@ -6,6 +6,7 @@ const postSchema = new Schema({
     title: { type: String , required: true },
     body: { type: String , required: true },
     user: {type : String , required: true }, 
+    avatar: {type: String , required: true },
     slug: { type: String , required: true , unique: true }
 },{ versionKey: false })
 
