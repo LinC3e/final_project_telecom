@@ -278,3 +278,8 @@ footer{
 .uk-form-label{
     width: 100px;
 }
+
+#formAuth{
+    border: 1px solid #272727;
+    border-radius: 20px;
+}

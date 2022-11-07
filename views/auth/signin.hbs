@@ -1,24 +1,46 @@
 {{#if todo_OK}}
-    <div id="liveAlertPlaceholder"></div>
-<button type="button" class="btn btn-primary" id="liveAlertBtn">{{todo_OK}}</button>
+<div class="uk-alert-success mt-5 .uk-width-expand" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>{{todo_OK}}</p>
+</div>
 {{/if}}
 
 {{#if todo_error}}
-    {{todo_error}}
+<div class="uk-alert-danger mt-5 .uk-width-expand" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>{{todo_error}}</p>
+</div>
 {{/if}}
 
-<div class="col">
-    <form action="/auth/signin" method="post">
-        <div class="form-control">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su email">
+<div class="uk-height-large uk-card uk-card-default uk-card-body uk-flex uk-flex-center uk-flex-middle mt-3">
+    <form id="formAuth" class="mt-3 p-3" action="/auth/signin" method="post">
+
+        <h3>Login</h3>
+        <div class="uk-margin">
+            <label class="uk-form-label" for="email">Correo Electronico: </label>
+            <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input" type="email" aria-label="Not clickable icon" id="email" name="email"
+                    placeholder="example@gmail.com">
+            </div>
         </div>
 
-        <div class="form-control">
-            <label for="password" class="form-label">password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña">
+        <div class="uk-margin">
+            <label class="uk-form-label" for="password">Contraseña: </label>
+            <div class="uk-inline">
+                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                <input class="uk-input" type="password" aria-label="Not clickable icon" id="password" name="password"
+                    placeholder="Password">
+            </div>
+        </div>
+        <div class="uk-button-group uk-flex uk-flex-center">
+            <button class="uk-button uk-button-secondary mt-3">
+                Signin
+            </button>
+            <button class="uk-button uk-button-secondary mt-3">
+                <a href="/auth/signup">Register</a>
+            </button>
         </div>
 
-        <button class="btn btn-primary">Signin</button>
     </form>
 </div>
