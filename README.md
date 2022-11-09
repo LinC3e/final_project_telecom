@@ -14,6 +14,7 @@
  - [passport-local](https://www.passportjs.org/packages/passport-local/)
  - [connect-mongo](https://github.com/jdesboeufs/connect-mongo#readme)
  - [connect-flash](https://github.com/jaredhanson/connect-flash#readme)
+ - [moment](https://momentjs.com/)
 
  ## Frontend Framework
  - [UIkit](https://getuikit.com/)

@@ -1,4 +1,5 @@
 const Post = require('../models/posts')
+const moment = require('moment')
 
 // Mostrar post en cards
 
@@ -25,7 +26,7 @@ const traerPostCard = async (req,res) => {
 const getPosts = async (req,res) => {
     try {
         // Post.find({user.req.id}).lean() filtra post solo del usuario
-        const posts = await Post.find({}).lean()// Me deja un obj puro de js
+        const posts = await Post.find({}).sort({created: -1}).lean()// Me deja un obj puro de js
         console.log(posts)
 
         const title = "Listado de Post"
@@ -59,6 +60,7 @@ const createPost = async (req,res) => {
 
         post.title = req.body.title
         post.body = req.body.body
+        post.created = moment().format('lll')
         post.user = req.user.id
         post.avatar = "https://ceslava.s3-accelerate.amazonaws.com/2016/04/rZoltXj1-mistery-man-gravatar-wordpress-avatar-persona-misteriosa-510x510.png"
 
@@ -89,7 +91,7 @@ const showPost = async (req,res) => {
 // my posts 
 const myPosts = async (req, res) => {
     try {
-        const posts = await Post.find({user: req.user.name}).lean()
+        const posts = await Post.find({user: req.user.name}).sort({created: -1}).lean()
         const title = "My/posts"
         res.status(200).render('myposts',
             {
@@ -124,6 +126,7 @@ const editPost = async (req, res) => {
         if (post.user == null || post.user === req.user.name) {
             post.title = req.body.title;
             post.body = req.body.body;
+            post.updated = moment().calendar()
 
             post = await post.save();
             res.status(200).redirect(`/posts/${post.slug}`);

@@ -7,7 +7,9 @@ const postSchema = new Schema({
     body: { type: String , required: true },
     user: {type : String , required: true }, 
     avatar: {type: String , required: true },
-    slug: { type: String , required: true , unique: true }
+    slug: { type: String , required: true , unique: true },
+    created: { type: String }, 
+    updated: { type: String },
 },{ versionKey: false })
 
 // Middleware .pre

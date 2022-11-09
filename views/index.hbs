@@ -21,6 +21,7 @@
         </div>
         <div class="uk-card-footer ">
             <div>
+                <i>{{#if this.updated}}Edited: {{this.updated}}{{else}}{{this.created}}{{/if}}</i>
                 <div class="uk-button-group uk-flex uk-flex-center">
                     <a href="/posts/{{this.slug}}" class="uk-button uk-button-primary uk-button-small">Show</a>
                     <a href="/posts/edit/{{this._id}}" class="uk-button uk-button-secondary uk-button-small ">Edit</a>
